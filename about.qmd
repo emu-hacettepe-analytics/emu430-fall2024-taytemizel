@@ -15,7 +15,7 @@ sidebar: false
 
 # Competencies
 
-R, Quarto, Git, Python, AutoCAD, 3Ds Max, Minitab
+R, Quarto, Git, Python, AutoCAD, 3Ds Max, Minitab, MS Excel
 
 # Hobbies
 
