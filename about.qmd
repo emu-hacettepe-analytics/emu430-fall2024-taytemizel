@@ -17,8 +17,6 @@ sidebar: false
 
 R, Quarto, Git, Python, AutoCAD, 3Ds Max, Minitab, MS Excel
 
-# Hobbies
+For further details, you can review my CV that I provided its link below.
 
--   **Meteorology and Climatology**
-
-Follows short- and long-term weather forecasts, utilizes various forecasting models on a day-to-day basis and monitors monthly and annual temperature and precipitation trends/anomalies, primarily focusing on Europe.
+[Open CV File](Tolkan%20Aytemizel-CV.pdf)

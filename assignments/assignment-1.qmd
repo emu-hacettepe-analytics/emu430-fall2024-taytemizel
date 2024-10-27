@@ -4,12 +4,86 @@ title: "Assignment 1"
 
 # Assignment 1
 
+My first assignment has two parts. The first part is about providing a brief summary of a talk on data science and industrial engineering conducted with Erdi Daşdemir and Mustafa Baydoğan. Mustafa Baydoğan is the main speaker of the talk, who completed his undergraduate and graduate studies at Middle East Technical University in Turkey, studied PhD at Arizona State University in USA, and currently, he is working as a faculty member at Boğaziçi University in the department of Industrial Engineering. Moreover, he is the founder of the company called "Algopoly Software and Consulting Inc.".
+
+## (a) Brief Summary of Baydoğan's Speech:
+
+Throughout the seminar, he discussed how machine learning can be applied to company operations and optimization to forecast sales accurately and keep the balance of production and consumption. While doing this, one forecast might be followed by another forecast, which makes the decision making processes more complicated and results in lots of the data to be processed. He mentioned the traditional learning, deep learning, reinforcement learning and preference learning processes to be able to make an explainable and robust arguments to managers and colleagues on the final decision and its effects on the market in a way that answering possible reasons of applications. He emphasized that the wrong predictions result in penalty costs to companies. He also talked about integrating forecasting models into our mathematical models and how they can be explained through visualizations. One of the discussion is to consider customers' activities and their interests in online shopping platforms to make customizations and statistical analyses on the ordering algorithms. In the Q&A part, he suggested taking responsibilities and encountering real life problems to be able to improve in the field of data science.
+
+### Open Ended Question:
+
+Which machine learning technique can be used to improve optimization?
+
+### Answer:
+
+As far as I am concerned that it is not always easy and quick to solve optimization problems. For instance, variations in the amount of product to be shipped to some destination center stems from the dynamic conditions that affect the company operations, and these conditions can make optimization problems more challenging. With the advent of AI technologies, reinforcement learning, which is a sub-field of machine learning, is being applied across a wide range of scientific disciplines. Reinforcement learning involves the use of a trial-and-error approach to address decision-making problems, just as Baydoğan explained in the seminar. It is used in dynamic environments to solve complex multi-objective optimization problems faster.
+
+### Multiple Choice Question:
+
+Which of the following is a FALSE statement about human activities on decision-making?
+
+#### (a) Dealing with insufficient data requires high level of human resource.
+
+#### (b) Predictions used for decision-making should be 100% correct.
+
+#### (c) Reinforcement learning techniques are very important for decision-making.
+
+#### (d) Models should be basic and explainable by humans.
+
+### Answer:
+
+Predictions may be misleading and the risk of wrong predictions should be considered in decision-making. Therefore, the answer is **(b)**.
+
+## (b) Polls_us_election_2016:
+
+Let's first display the first 10 rows of "polls_us_election_2016" data set from the dslabs package.
+
 ```{r}
-1 + 1
+library(dslabs)
+data("polls_us_election_2016")
+polls_us_election_2016[1:10, ]
 ```
 
-My first assignment has two parts.
+The number of NA values is given below.
 
-## (a)
+```{r}
+sum(is.na(polls_us_election_2016))
+```
 
-## (b)
+Next, we will replace all NA values in the "polls_us_election_2016" data set as follows:
+
+For numeric columns, we will replace NA values with 2003.
+
+For character and factor columns, we will replace NA values with Tolkan.
+
+After this, we will store the modified data set as a new object.
+
+```{r}
+no_nas <- polls_us_election_2016
+birth_year <- 2003
+first_name <- "Tolkan"
+
+for (i in names(no_nas)) {
+  
+  if(is.numeric(no_nas[[i]])) {
+    
+    no_nas[[i]] <- ifelse(is.na(no_nas[[i]]), birth_year, no_nas[[i]])
+  }
+  
+  else if(is.character(no_nas[[i]]) | is.factor(no_nas[[i]])) {
+    no_nas[[i]] <- ifelse(is.na(no_nas[[i]]), first_name, as.character(no_nas[[i]]))
+  }
+}
+```
+
+Let's check the results. The total number of NA's remaining in the new data frame is shown below.
+
+```{r}
+sum(is.na(no_nas))
+```
+
+The first 10 rows of the new data frame is shown below.
+
+```{r}
+no_nas[1:10, ]
+```
